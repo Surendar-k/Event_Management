@@ -1,0 +1,77 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  max-width: 500px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.card-row {
+  margin-top: 8px;
+}
+.card-buttons {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+.card-buttons button {
+  margin-left: 8px;
+  padding: 6px 12px;
+}
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  background: #000;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+.modal h2 {
+  margin-top: 0;
+}
+.form-group {
+  margin-bottom: 12px;
+}
+.form-group label {
+  font-weight: bold;
+  display: block;
+}
+.form-group span {
+  display: block;
+  margin-top: 4px;
+}
+.close-btn {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: sans-serif;
+}
+
+td {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+}
