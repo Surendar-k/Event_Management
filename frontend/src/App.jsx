@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 
 import Layout from './Layout.jsx';
 import Navbar from './Navbar';
@@ -11,41 +10,30 @@ import FoodTravel from './pages/foodAndTravel/FoodAndTravel';
 import EventForm from './pages/main/Main';
 import InfrtechSetup from './pages/Infra/Infra.jsx';
 import Others from './pages/others/Others';
-import Login from './pages/login/Login.jsx'
+import Login from './pages/login/Login.jsx';
 import FilterEvents from './pages/filterevents/FilterEvents';
 import Inbox from './pages/inbox/Inbox';
 import EventNav from './EventNav';
-import InfraTechSetup from './pages/Infra/Infra.jsx';
-import DailyReport from './report_generation/DailyReport.jsx';
+
+import Report_Generation from './report_generation/Report_Generation.jsx';
 import ReportOverview from './report_generation/ReportOverview.jsx';
+import DailyReport from './report_generation/DailyReport.jsx';
 import SummaryReport from './report_generation/SummaryReport.jsx';
-//import ErrorBoundary from './ErrorBoundary.jsx';
 
 function App() {
   const location = useLocation();
-  
-  // Paths where both navbars should be hidden
-  const hideAllNavsPaths = ["/", "/login", "/signup"];
-  // Paths where only EventNav should be hidden
-  const hideEventNavPaths = ["/FilterEvents"];
 
-  // Check if current path requires hiding navbars
-  const shouldHideAllNavs = hideAllNavsPaths.some(path => 
-    location.pathname === path
-  );
-  const shouldHideEventNav = hideEventNavPaths.some(path => 
-    location.pathname === path
-  );
+  const hideAllNavsPaths = ["/", "/login", "/signup"];
+  const hideEventNavPaths = ["/filterEvents"];
+
+  const shouldHideAllNavs = hideAllNavsPaths.some(path => location.pathname === path);
+  const shouldHideEventNav = hideEventNavPaths.some(path => location.pathname === path);
 
   return (
     <>
-      {/* Main Navbar - hidden only on login/signup pages */}
       {!shouldHideAllNavs && <Navbar />}
-      
-      {/* Event Navbar - hidden on FilterEvents and login pages */}
       {!shouldHideAllNavs && !shouldHideEventNav && <EventNav />}
 
-      {/* Main content area */}
       <div style={{
         width: '100%',
         minHeight: '100vh',
@@ -57,10 +45,10 @@ function App() {
         flexDirection: 'column',
         alignItems: 'center',
       }}>
-        <div style={{ 
-          width: '100%', 
-          maxWidth: '1200px', 
-          padding: '20px' 
+        <div style={{
+          width: '100%',
+          maxWidth: '1200px',
+          padding: '20px'
         }}>
           <Routes>
             <Route element={<Layout />}>
@@ -69,16 +57,21 @@ function App() {
               <Route path="/event" element={<Event />} />
               <Route path="/agenda" element={<Agenda />} />
               <Route path="/financialPlanning" element={<FinancialPlanning />} />
-              <Route path="/infraTech" element={<InfraTechSetup />} />
+              <Route path="/infraTech" element={<InfrtechSetup />} />
               <Route path="/foodTravel" element={<FoodTravel />} />
               <Route path="/checklist" element={<Others />} />
-              <Route path="/filterEvents" element={<FilterEvents/>} />
-             <Route path="/dailyreport" element={<DailyReport />}/>
-             <Route path="/reportoverview" element={<ReportOverview />}/>
-             <Route path="/summary" element={<SummaryReport />}/>
-              {/* //<ErrorBoundary> */}
+              <Route path="/filterEvents" element={<FilterEvents />} />
+
+              {/* Report Generation route with nested routes */}
+              <Route path="/reportgeneration" element={<Report_Generation />}>
+                {/* Default route for /reportgeneration */}
+                <Route index element={<Navigate to="dailyReport" replace />} />
+                <Route path="reportoverview" element={<ReportOverview />} />
+                <Route path="dailyReport" element={<DailyReport />} />
+                <Route path="summary" element={<SummaryReport />} />
+              </Route>
+
               <Route path="/inbox" element={<Inbox />} />
-              {/* //</ErrorBoundary> */}
               <Route path="*" element={<EventForm />} />
             </Route>
           </Routes>
