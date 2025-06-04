@@ -16,9 +16,10 @@ import Inbox from './pages/inbox/Inbox';
 import EventNav from './EventNav';
 
 import Report_Generation from './report_generation/Report_Generation.jsx';
-import ReportOverview from './report_generation/ReportOverview.jsx';
-import DailyReport from './report_generation/DailyReport.jsx';
+import ReportOverview from './report_generation/ParticipantsInfo.jsx';
+import DailyReport from './report_generation/Report.jsx';
 import SummaryReport from './report_generation/SummaryReport.jsx';
+import ParticipantsInfo from './report_generation/ParticipantsInfo.jsx';
 
 function App() {
   const location = useLocation();
@@ -53,6 +54,8 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Login />} />
+         
+             
               <Route path="/login" element={<Login />} />
               <Route path="/event" element={<Event />} />
               <Route path="/agenda" element={<Agenda />} />
@@ -61,16 +64,16 @@ function App() {
               <Route path="/foodTravel" element={<FoodTravel />} />
               <Route path="/checklist" element={<Others />} />
               <Route path="/filterEvents" element={<FilterEvents />} />
-
+             
               {/* Report Generation route with nested routes */}
               <Route path="/reportgeneration" element={<Report_Generation />}>
                 {/* Default route for /reportgeneration */}
                 <Route index element={<Navigate to="dailyReport" replace />} />
-                <Route path="reportoverview" element={<ReportOverview />} />
-                <Route path="dailyReport" element={<DailyReport />} />
+                <Route path="participationinfo" element={<ParticipantsInfo />} />
+                <Route path="report" element={<DailyReport />} />
                 <Route path="summary" element={<SummaryReport />} />
               </Route>
-
+              
               <Route path="/inbox" element={<Inbox />} />
               <Route path="*" element={<EventForm />} />
             </Route>

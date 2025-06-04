@@ -3,8 +3,8 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { FaChartLine, FaRegCalendarCheck, FaFileAlt } from 'react-icons/fa';
 
 const reportNavItems = [
-  { id: 'reportOverview', label: 'Report Overview', icon: <FaChartLine />, path: 'reportoverview' },
-  { id: 'dailyReport', label: 'Daily Report', icon: <FaRegCalendarCheck />, path: 'dailyReport' },
+  { id: 'reportOverview', label: 'Participation Info', icon: <FaChartLine />, path: 'participationinfo' },
+  { id: 'report', label: 'Report', icon: <FaRegCalendarCheck />, path: 'report' },
   { id: 'summaryReport', label: 'Summary', icon: <FaFileAlt />, path: 'summary' }
 ];
 
