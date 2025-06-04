@@ -13,7 +13,7 @@ const dailyData = [
     expenses: '₹40,000',
     participants: 2,
     organizerName: 'John Smith',
-    organizerCollege: 'ABC College',
+    organizerCollege: 'Engineering & Technology',
     organizerContact: 'contact@abccollege.edu',
   },
   {
@@ -22,7 +22,7 @@ const dailyData = [
     expenses: '₹15,000',
     participants: 1,
     organizerName: 'Jane Doe',
-    organizerCollege: 'XYZ College',
+    organizerCollege: 'SSEI',
     organizerContact: 'info@xyzcollege.edu',
   },
 ];

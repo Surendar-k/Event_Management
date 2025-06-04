@@ -10,7 +10,7 @@ const ParticipantsInfo = () => {
   const events = [
     {
       eventName: 'Tech Summit 2025',
-      college: 'ABC College',
+      college: 'Engineering & Technology',
       eventDate: '2025-04-12',
       formLink: 'https://docs.google.com/forms/d/e/1FAIpQLSd5mvuazgz2kLD7BgvvuWbgFrfeXZrp-yEX3luNfNuaMSU0kA/viewform?usp=header',
       participants: [
@@ -20,7 +20,7 @@ const ParticipantsInfo = () => {
     },
     {
       eventName: 'Innovation Fest',
-      college: 'XYZ College',
+      college: 'SSEI',
       eventDate: '2025-05-20',
       formLink: 'https://docs.google.com/forms/d/e/1FAIpQLSd5mvuazgz2kLD7BgvvuWbgFrfeXZrp-yEX3luNfNuaMSU0kA/viewform?usp=header',
       participants: [
