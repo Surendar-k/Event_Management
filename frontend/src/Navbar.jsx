@@ -269,7 +269,7 @@ useEffect(() => {
 
 
 
-              <button
+              {/* <button
                 className={`nav-option ${selected === "report" ? "selected" : ""}`}
                 onClick={() => {
                   setSelected("report");
@@ -277,7 +277,7 @@ useEffect(() => {
                 }}
               >
                 Report
-              </button>
+              </button> */}
 
               <button
                 className={`nav-option ${selected === "inbox-msg" ? "selected" : ""}`}
