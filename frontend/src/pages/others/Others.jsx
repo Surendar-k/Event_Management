@@ -80,19 +80,35 @@ const Others = () => {
     }));
   };
 
-  const validateCurrentPage = () => {
-    return visibleItems.every((item) => {
-      const { required, inCharge, date } = formData[item.key];
-      return required && inCharge.trim() && date;
-    });
-  };
+const validateCurrentPage = () => {
+  return visibleItems.every((item) => {
+    const { required, inCharge, date } = formData[item.key];
+    const isValid = (typeof required === 'boolean' ? required : Boolean(required)) 
+                    && inCharge && inCharge.trim() !== "" && date;
+    if (!isValid) {
+      console.log("Validation failed for:", item.key, { required, inCharge, date });
+    }
+    return isValid;
+  });
+};
+
 
   const validateAllPages = () => {
-    return checklistItems.every((item) => {
-      const { required, inCharge, date } = formData[item.key];
-      return required && inCharge.trim() && date;
-    });
-  };
+  return checklistItems.every((item) => {
+    const { required, inCharge, date } = formData[item.key];
+    // If required is boolean, just check it's true
+    // If string, check non-empty string
+    const isRequiredValid = typeof required === 'boolean' ? required === true : Boolean(required && required.trim());
+    const isInChargeValid = inCharge && inCharge.trim();
+    const isDateValid = Boolean(date);
+    const valid = isRequiredValid && isInChargeValid && isDateValid;
+    if (!valid) {
+      console.log("Validation failed for:", item.key, { required, inCharge, date });
+    }
+    return valid;
+  });
+};
+
 
   const handleNextPage = () => {
     if (!validateCurrentPage()) {
@@ -280,13 +296,14 @@ const Others = () => {
                 Next {">>"}
               </button>
             ) : (
-              <button 
-                className="submit-btn-cl" 
-                onClick={() => setShowSaveModal(true)}
-                disabled={!validateCurrentPage()}
-              >
-                Save
-              </button>
+           <button 
+  className="submit-btn-cl" 
+  onClick={() => setShowSaveModal(true)}
+>
+  Save
+</button>
+
+
             )}
           </div>
         </div>

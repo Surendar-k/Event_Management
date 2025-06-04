@@ -134,20 +134,23 @@ useEffect(() => {
 
   const [selected, setSelected] = useState(getInitialTab());
 
-  useEffect(() => {
-    const path = location.pathname;
-    const isEventSubPath = eventNavItems.some(item => path.startsWith(item.path));
-    
-    if (isEventSubPath) {
-      setSelected('create');
-    } else if (path === '/FilterEvents') {
-      setSelected('generation');
-    } else if (path === '/Inbox') {
-      setSelected('inbox-msg');
-    } else {
-      setSelected('/event');
-    }
-  }, [location.pathname]);
+useEffect(() => {
+  const path = location.pathname;
+
+  const isEventSubPath = eventNavItems.some(item => path.startsWith(item.path));
+
+  if (isEventSubPath) {
+    setSelected('create');
+  } else if (path === '/FilterEvents' || path === '/reportgeneration') {
+    setSelected('generation');
+  } else if (path === '/Inbox') {
+    setSelected('inbox-msg');
+  } else {
+    setSelected('');
+  }
+}, [location.pathname]);
+
+
 
   const eventNavItems = [
     {
@@ -254,21 +257,23 @@ useEffect(() => {
                 Create Event
               </button>
 
-              <button
-                className={`nav-option ${selected === "generation" ? "selected" : ""}`}
-                onClick={() => {
-                  setSelected("generation");
-                  navigate("/FilterEvents");
-                }}
-              >
-                Report Generation
-              </button>
+  <button
+  className={`nav-option ${selected === "generation" ? "selected" : ""}`}
+  onClick={() => {
+    setSelected("generation");
+    navigate("/reportgeneration/dailyReport"); // Navigate directly to DailyReport as default
+  }}
+>
+  Report Generation
+</button>
+
+
 
               <button
                 className={`nav-option ${selected === "report" ? "selected" : ""}`}
                 onClick={() => {
                   setSelected("report");
-                  navigate("/FilterEvents");
+                  navigate("/reportpage");
                 }}
               >
                 Report
@@ -350,7 +355,7 @@ useEffect(() => {
             className={`mobile-menu-item ${selected === "generation" ? "selected" : ""}`}
             onClick={() => {
               setSelected("generation");
-              navigate("/FilterEvents");
+              navigate("/reportgeneration");
               setIsMobileMenuOpen(false);
             }}
           >
@@ -371,22 +376,24 @@ useEffect(() => {
       )}
 
       {/* EventNav Section - Desktop only */}
-      {!isMobile && !noEventNavRoutes.includes(location.pathname) && (
-        <div className="event-nav">
-          {eventNavItems.map(item => (
-            <NavLink
-              key={item.id}
-              to={item.path}
-              className={({ isActive }) =>
-                `event-nav-item ${isActive ? "active" : ""}`
-              }
-            >
-              <span className="event-icon">{item.icon}</span>
-              <span className="event-label">{item.label}</span>
-            </NavLink>
-          ))}
-        </div>
-      )}
+      
+{!isMobile && selected === "create" && !noEventNavRoutes.includes(location.pathname) && (
+  <div className="event-nav">
+    {eventNavItems.map(item => (
+      <NavLink
+        key={item.id}
+        to={item.path}
+        className={({ isActive }) =>
+          `event-nav-item ${isActive ? "active" : ""}`
+        }
+      >
+        <span className="event-icon">{item.icon}</span>
+        <span className="event-label">{item.label}</span>
+      </NavLink>
+    ))}
+  </div>
+)}
+
 
       {showPasswordModal && (
         <ChangePasswordModal

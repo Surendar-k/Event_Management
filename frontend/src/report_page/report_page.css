@@ -1,0 +1,61 @@
+.report-page-container {
+  padding: 2rem;
+  background: #f4f4f4;
+  min-height: 100vh;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 300px;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.report-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+.status-tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.status-tag.draft { background: gray; }
+.status-tag.submitted { background: orange; }
+.status-tag.approved { background: green; }
+.status-tag.completed { background: blue; }
+.status-tag.rejected { background: red; }
+
+.attachments a {
+  display: block;
+  margin-top: 5px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.view-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

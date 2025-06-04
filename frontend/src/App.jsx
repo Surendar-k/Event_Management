@@ -16,6 +16,9 @@ import FilterEvents from './pages/filterevents/FilterEvents';
 import Inbox from './pages/inbox/Inbox';
 import EventNav from './EventNav';
 import InfraTechSetup from './pages/Infra/Infra.jsx';
+import DailyReport from './report_generation/DailyReport.jsx';
+import ReportOverview from './report_generation/ReportOverview.jsx';
+import SummaryReport from './report_generation/SummaryReport.jsx';
 //import ErrorBoundary from './ErrorBoundary.jsx';
 
 function App() {
@@ -70,6 +73,9 @@ function App() {
               <Route path="/foodTravel" element={<FoodTravel />} />
               <Route path="/checklist" element={<Others />} />
               <Route path="/filterEvents" element={<FilterEvents/>} />
+             <Route path="/dailyreport" element={<DailyReport />}/>
+             <Route path="/reportoverview" element={<ReportOverview />}/>
+             <Route path="/summary" element={<SummaryReport />}/>
               {/* //<ErrorBoundary> */}
               <Route path="/inbox" element={<Inbox />} />
               {/* //</ErrorBoundary> */}
