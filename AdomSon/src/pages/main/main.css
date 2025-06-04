@@ -1,0 +1,174 @@
+/* Make the form full-screen */
+body, html {
+  margin:   0px;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+}
+
+.event-form {
+  width: 90vw;
+  height: 80;
+  overflow-y: auto;
+  padding: 10rem 3rem;
+  box-sizing: border-box;
+  background: #ffffff;
+  position: relative;
+  left: -8%;
+
+}
+
+.event-section-title {
+  color: #007bff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.subsection-title {
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  display: inline-block;
+  margin: 1.2rem 0 0.5rem 0;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+#email{
+  width: 100%;
+}
+.form-group {
+  position: relative;
+  flex: 1 1 calc(25% - 2rem); /* Fits 4 per row with spacing */
+  min-width: 240px;
+}
+
+.form-group input{
+  width: 100%;
+  padding: 1.2rem 0.75rem 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  appearance: none;
+}
+
+.form-group select {
+  width: 107%;
+  padding: 1.2rem 0.75rem 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  appearance: none;
+}
+
+.form-group label {
+  position: absolute;
+  top: 1.2rem;
+  left: 0.75rem;
+  color: #777;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  padding: 0 5px;
+}
+
+/* Floating label for input */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: #000;
+
+}
+
+/* Floating label for select */
+.form-group select:focus + label,
+.form-group select:valid + label {
+  top: -0.6rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: #000;
+  background-color: #ffffff;
+}
+
+/* Transparent placeholder for select until selection */
+.form-group select:required:invalid {
+  color: transparent;
+}
+
+/* Option text visible */
+.form-group select option {
+  color: black;
+}
+
+/* Animate border on focus */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+/* Submit button */
+.eventinfo-submit-btn {
+  
+  padding: 0.75rem 1.8rem;
+  font-size: 1rem;
+  background-color: #3d70b8;
+  color: #fff;
+  border: none;
+  top: 5%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: relative;
+}
+
+.eventinfo-submit-btnn:hover {
+  background: #555;
+  transform: translateX(-30px);
+}
+
+/* Media Queries */
+
+/* Tablet and below (max-width: 768px) */
+@media (max-width: 768px) {
+  .form-group {
+    flex: 2 1 100%;
+     /* Full width on tablets and below */
+  }
+
+  .event-form {
+    padding: 2rem;
+    left: 0;
+    padding-top: 150px;
+  }
+}
+
+/* Mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .event-form {
+    padding: 2rem;
+    left: 0;
+    padding-top: 80px;
+  }
+
+  .form-group {
+    flex: 1 1 100%; /* Full width on mobile */
+  }
+
+  .eventinfo-submit-btn {
+    width: 100%;
+     /* Full width submit button */
+  }
+}

@@ -1,0 +1,232 @@
+.financial-planning {
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 90vw;
+  margin: 0;
+  margin-top: 80px;
+  box-sizing: border-box;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -685px;
+  margin-right: -50vw;
+  background-color: #fff; /* Optional: background to differentiate section */
+}
+
+.financial-planning h1 {
+  color: #1c366a;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.financial-planning h2 {
+  color: #3c2a5a;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.financial-planning table {
+  width: 110%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.financial-planning th,
+.financial-planning td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.financial-planning th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.financial-planning input[type="number"],
+.financial-planning input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.total-row td {
+  font-weight: bold;
+  background-color: #f1f1f1;
+}
+
+.submit-button-container {
+  text-align: right;
+  margin-top: 20px;
+  transform: translateX(10%);
+}
+
+.submit-button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #5d98c9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: relative;
+ 
+  
+}
+
+.submit-button-container button:hover {
+  background-color: #315069;
+}
+
+
+
+.balance-summary {
+  /* background-color: #f8f9fa; */
+  padding: 15px;
+  display: flex;
+  border-radius: 4px;
+  margin: 20px 0;
+  margin-bottom: 20px;
+  gap: 100px;
+}
+.summary-content{
+  width: 70%;
+  display: flex;
+  margin-left: -22%;
+  margin-top: 30px;
+  gap: 20%;
+
+}
+
+.balance-summary h3 {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .financial-planning {
+    width: 80vw;
+    margin-top: 100px;
+  }
+
+  .financial-planning h1 {
+    font-size: 32px;
+  }
+
+  .financial-planning table th,
+  .financial-planning table td {
+    padding: 12px 16px;
+  }
+
+  .submit-button-container button {
+    left: 0; /* Reset position */
+  }
+}
+
+/* ===========================
+   Tablet View (≥768px and <1024px)
+   =========================== */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .financial-planning {
+    width: 90vw;
+    margin-top: 80px;
+    margin-left: 5%;
+  }
+
+  .financial-planning h1 {
+    font-size: 30px;
+  }
+
+  .financial-planning table th,
+  .financial-planning table td {
+    padding: 10px 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .financial-planning {
+    width: 95vw;
+    margin: 120px auto 20px 10px; /* Adjusted for navbar */
+    padding: 15px;
+    left: 10px; /* Remove fixed positioning */
+    right: 0;
+    margin-left: 0; /* Remove negative margin */
+    margin-right: 0;
+  }
+
+  .financial-planning h1 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+
+  .financial-planning h2 {
+    font-size: 20px;
+  }
+
+  /* Make tables stack vertically on mobile */
+  .financial-planning table,
+  .financial-planning thead,
+  .financial-planning tbody,
+  .financial-planning tr {
+    display: block;
+    width: 100%;
+  }
+
+  .financial-planning td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+    text-align: right !important;
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* aligns items to the left */
+  padding-left: 1rem; /* optional, adds some spacing */
+  }
+
+  /* Add labels for each cell */
+  .financial-planning td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #ec1616;
+    text-align:left !important;
+    flex: 1;
+    justify-content: left;
+  }
+
+  /* Hide table headers on mobile */
+  .financial-planning th {
+    display: none;
+  }
+
+  /* Adjust summary layout */
+  .balance-summary {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .summary-content {
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Full-width button on mobile */
+  .submit-button-container {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .submit-button-container button {
+    width: 100%;
+    left: 0;
+  }
+}

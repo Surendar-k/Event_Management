@@ -1,0 +1,118 @@
+.infra-container {
+  padding: 40px 20px; /* fixed negative padding */
+  font-size: 14px;
+  color: black;
+  font-family: Arial, sans-serif;
+  margin-top: 170px;
+  margin-right: 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-title1 {
+  color: #14076a;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.save-btn {
+  margin-top: 2rem;
+  padding: 0.6rem 1.5rem;
+  background-color: #3053c5;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  position: relative;
+  left: 94%;
+}
+
+.save-btn:hover {
+  background-color: #326cbe;
+}
+
+.section-header {
+  color: #14076a;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.floating-label {
+  position: relative;
+  flex: 1 1 calc(25% - 40px); /* 4 items per row */
+  min-width: 260px;
+  margin-bottom: 20px;
+}
+
+.floating-label input,
+.floating-label select {
+  width: 100%;
+  padding: 14px 12px 6px;
+  font-size: 16px;
+  border: 1px solid #5792d9;
+  border-radius: 4px;
+  background: none;
+  box-sizing: border-box;
+}
+
+.floating-label label {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  color: #6d6d6d;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  background-color: white;
+  padding: 0 4px;
+}
+
+.floating-label input:focus + label,
+.floating-label select:focus + label,
+.floating-label.has-value label {
+  top: -8px;
+  left: 8px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .floating-label {
+    flex: 1 1 calc(50% - 40px); /* 2 items per row */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .infra-container {
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  .floating-label {
+    flex: 1 1 100%; /* stack items */
+  }
+
+  .save-btn {
+    left: 0;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+}

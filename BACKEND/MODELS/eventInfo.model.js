@@ -1,0 +1,40 @@
+const mongoose = require('mongoose');
+
+const eventSchema = new mongoose.Schema({
+  eventId: { type: String, unique: true, required: true },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  eventOrganizingInstitution: { type: String, required: true },
+  department: { type: String, required: true },
+  title: { type: String, required: true },
+  eventNature: { type: String, required: true },
+  eventScope: { type: String, required: true },
+  fundingSource: { type: String, required: true },
+  fundingAgencyName: { type: String },
+  venue: { type: String, required: true },
+  venueType: { type: String, required: true },
+  intendedAudience: { type: String, required: true },
+  eventStartDate: { type: Date, required: true },
+  eventEndDate: { type: Date, required: true },
+  totalDays: { type: String, required: true },
+  eventStartTime: { type: String, required: true },
+  eventEndTime: { type: String, required: true },
+  leadCoOrdinator: { type: String, required: true },
+  facultyCoOrdinator: { type: String, required: true },
+  name_Of_The_Speaker: { type: String, required: true },
+  designation: { type: String, required: true },
+  affiliated_Organization: { type: String, required: true },
+  contactNumber: { type: String, required: true },
+  email: { type: String, required: true },
+  estimated_Student_Participation: { type: String, required: true },
+  estimated_Faculty_Participation: { type: String, required: true },
+  total_Expected_Attendence: { type: String, required: true },
+  guest_Accomodation: { type: String, required: true },
+  guest_Transportation: { type: String, required: true },
+  guest_Food: { type: String, required: true },
+}, { timestamps: true });
+
+module.exports = mongoose.model('EventInfo', eventSchema);

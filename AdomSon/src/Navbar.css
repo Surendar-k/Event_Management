@@ -1,0 +1,496 @@
+.navbar {
+  width: 98%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #575757;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f0eaea;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 60px;
+}
+
+.navbar-left .logo {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.logo {
+  height: 83px;
+  width: auto;
+  cursor: pointer;
+}
+
+.navbar-center {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-size: 29px;
+}
+
+.nav-option {
+  background-color: transparent;
+  border: none;
+  color: #f0eaea;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nav-option:hover {
+  background-color: #7a7171;
+  transform: scale(1.05);
+}
+
+.nav-option.selected {
+  background-color: #a49c9c;
+  color: white;
+  transform: scale(1.08);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 40px;
+}
+
+.profile-pic{
+  border-radius: 60px;
+  position: relative;
+  left: -20px;
+}
+
+.user-icon {
+  font-size: 22px;
+}
+
+.username {
+  position: relative;
+  font-size: 14px;
+  top: -5px;
+  left: 10px;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+}
+
+body {
+  letter-spacing: 1px;
+}
+
+.event-nav {
+  width: 100%;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  margin: 0 auto;
+  padding: 5px 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  font-family: 'Arial', sans-serif;
+  z-index: 100;
+  background-color: rgb(255, 255, 255);
+  height: 70px;
+}
+
+.event-nav-item {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 20px;
+  font-size: 14px;
+  color: black;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.event-nav-item:hover {
+  background-color: #dedede;
+  transform: scale(1.05);
+  color: black;
+}
+
+.event-nav-item.active {
+  background-color: #454545;
+  color: white;
+  transform: scale(1.08);
+}
+
+.event-icon {
+  font-size: 16px;
+}
+
+.event-label {
+  font-weight: 500;
+}
+
+
+/* Dropdown Menu Container */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 8px;
+  min-width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: all 0.25s ease-out;
+  pointer-events: none;
+  z-index: 1000000;
+}
+
+/* Show menu when active */
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dropdown-item:hover {
+  background: #f8f8f8;
+}
+
+/* Logout button specific styling */
+.dropdown-item.logout {
+  color: #e74c3c;
+  border-top: 1px solid #f0f0f0;
+}
+
+.dropdown-item.logout:hover {
+  background: #ffeeee;
+}
+
+/* Dropdown arrow animation */
+.profile-container:hover .dropdown-arrow {
+  transform: translateY(2px);
+}
+
+.dropdown-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  font-size: 0.7em;
+  margin-left: 4px;
+}
+
+/* Animation when menu opens */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation when showMenu is true */
+.dropdown-menu[data-show="true"] {
+  animation: slideDown 0.25s ease-out forwards;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  width: auto;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.success-message {
+  color: #2ecc71;
+  margin: 1rem 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 8px;
+  min-width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: all 0.25s ease-out;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: #f8f8f8;
+  padding-left: 20px;
+}
+
+.dropdown-item.logout {
+  color: #e74c3c;
+  border-top: 1px solid #f0f0f0;
+}
+
+.dropdown-item.logout:hover {
+  background: #ffeeee;
+}
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .mobile-menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+  }
+
+  .navbar-center-mobile {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar-center-mobile .logo {
+    height: 60px;
+  }
+
+  .navbar-right {
+    margin-right: 10px;
+  }
+
+  .username, .dropdown-arrow {
+    display: none;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #575757;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-menu-item {
+    padding: 15px 20px;
+    color: white;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 1px solid #777;
+  }
+
+  .mobile-menu-item.selected {
+    background-color: #a49c9c;
+    font-weight: bold;
+  }
+
+  .event-nav {
+    top: 60px;
+    height: 60px;
+    gap: 20px;
+    padding: 5px 10px;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .event-nav-item {
+    padding: 5px 15px;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .event-icon {
+    font-size: 20px;
+  }
+
+  .event-label {
+    font-size: 12px;
+  }
+}
+/* Add these new styles to your Navbar.css */
+/* Update these styles in your Navbar.css */
+.mobile-submenu {
+  width: 100%;
+  background-color: #454545;
+  margin-top: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  border-left: 1px solid #777; /* Added subtle left border */
+}
+
+.mobile-submenu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px; /* Reduced padding */
+  color: white;
+  text-decoration: none;
+  border-bottom: 0.5px solid #666; /* Reduced border thickness */
+  margin: 0 8px; 
+  width: calc(100% - 16px); /* Account for margins */
+}
+
+.mobile-submenu-item:last-child {
+  border-bottom: none;
+}
+
+.mobile-submenu-item.active {
+  background-color: #a49c9c;
+  font-weight: bold;
+  border-left: 3px solid white; /* Added left accent border for active item */
+  margin-left: 5px; /* Adjust for the active border */
+}
+
+/* Make the main mobile menu items more compact */
+.mobile-menu-item {
+  padding-top:0px;
+  padding: 30px 15px; /* Reduced padding */
+  color: white;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 15px; /* Slightly smaller font */
+  border-bottom: 0.5px solid #666; /* Reduced border thickness */
+  width: 100%;
+  cursor: pointer;
+}
