@@ -261,7 +261,7 @@ useEffect(() => {
   className={`nav-option ${selected === "generation" ? "selected" : ""}`}
   onClick={() => {
     setSelected("generation");
-    navigate("/reportgeneration/dailyReport"); // Navigate directly to DailyReport as default
+    navigate("/reportgeneration/report"); // Navigate directly to DailyReport as default
   }}
 >
   Report Generation
@@ -269,7 +269,7 @@ useEffect(() => {
 
 
 
-              {/* <button
+              <button
                 className={`nav-option ${selected === "report" ? "selected" : ""}`}
                 onClick={() => {
                   setSelected("report");
@@ -277,7 +277,7 @@ useEffect(() => {
                 }}
               >
                 Report
-              </button> */}
+              </button>
 
               <button
                 className={`nav-option ${selected === "inbox-msg" ? "selected" : ""}`}

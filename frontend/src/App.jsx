@@ -17,7 +17,7 @@ import EventNav from './EventNav';
 
 import Report_Generation from './report_generation/Report_Generation.jsx';
 import ReportOverview from './report_generation/ParticipantsInfo.jsx';
-import DailyReport from './report_generation/Report.jsx';
+import Report from './report_generation/Report.jsx';
 import SummaryReport from './report_generation/SummaryReport.jsx';
 import ParticipantsInfo from './report_generation/ParticipantsInfo.jsx';
 
@@ -68,9 +68,9 @@ function App() {
               {/* Report Generation route with nested routes */}
               <Route path="/reportgeneration" element={<Report_Generation />}>
                 {/* Default route for /reportgeneration */}
-                <Route index element={<Navigate to="dailyReport" replace />} />
+                <Route index element={<Navigate to="report" replace />} />
                 <Route path="participationinfo" element={<ParticipantsInfo />} />
-                <Route path="report" element={<DailyReport />} />
+                <Route path="report" element={<Report />} />
                 <Route path="summary" element={<SummaryReport />} />
               </Route>
               
