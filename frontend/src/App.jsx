@@ -12,7 +12,7 @@ import InfrtechSetup from './pages/Infra/Infra.jsx';
 import Others from './pages/others/Others';
 import Login from './pages/login/Login.jsx';
 import FilterEvents from './pages/filterevents/FilterEvents';
-import Inbox from './pages/inbox/Inbox';
+import Inbox from '../src/sh/Inbox.jsx';
 import EventNav from './EventNav';
 
 import Report_Generation from './report_generation/Report_Generation.jsx';

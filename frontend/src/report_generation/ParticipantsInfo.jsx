@@ -28,6 +28,18 @@ const ParticipantsInfo = () => {
         { name: 'Meena Das', email: 'meena@uni.edu', college: 'Delta University', phone: '9871234560' },
       ],
     },
+      {
+      eventName: 'Med Festa 2025',
+      college: 'Nursing',
+      eventDate: '2025-04-8',
+      formLink: 'https://docs.google.com/forms/d/e/1FAIpQLSd5mvuazgz2kLD7BgvvuWbgFrfeXZrp-yEX3luNfNuaMSU0kA/viewform?usp=header',
+      participants: [
+        { name: 'John Doe', email: 'john@example.com', college: 'ABC College', phone: '9876543210' },
+        { name: 'Jane Smith', email: 'jane@example.com', college: 'XYZ University', phone: '8765432109' },
+        { name: 'Arun', email: 'arun@example.com', college: 'RDN College', phone: '9876543210' },
+      ],
+    },
+    
     // ... other events ...
   ];
 
