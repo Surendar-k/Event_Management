@@ -25,7 +25,7 @@ body {
 }
 
 .card {
-  background: #ffffff;
+  background: #5d5b5b79;
   border-radius: 12px;
   padding: 20px;
   width: 300px;
@@ -68,7 +68,7 @@ body {
 }
 
 .btn-approve {
-  background-color: #4caf50;
+  background-color: #464746;
   color: #fff;
 }
 
@@ -76,17 +76,17 @@ body {
   background-color: #43a047;
 }
 .btn-approve.disabled {
-  background-color: #888;
+  background-color: #42a33b;
   cursor: not-allowed;
 }
 
 .btn-review {
-  background-color: #ff9800;
+  background-color: #cd7e1e;
   color: #fff;
 }
 
 .btn-review:hover {
-  background-color: #fb8c00;
+  background-color: #fb8a00;
 }
 
 /* Modal styles */
