@@ -1,8 +1,6 @@
-/* src/pages/report_generation/report.css */
-
 .report-container {
-  margin: 200px auto 40px auto; /* space for navbar */
-  padding: 30px 40px;
+  margin: 120px auto 30px auto;
+  padding: 20px;
   background: #f0eaea;
   border-radius: 14px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
@@ -15,7 +13,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
   border-bottom: 2px solid #575757;
   padding-bottom: 8px;
 }
@@ -23,56 +22,57 @@
 .report-header h2 {
   color: #575757;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 24px;
   letter-spacing: 0.04em;
+  margin-bottom: 10px;
 }
 
-/* Buttons container side by side */
 .report-buttons {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .report-buttons button {
-  padding: 10px 18px;
+  padding: 10px 16px;
   background-color: #575757;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   transition: background-color 0.25s ease, transform 0.15s ease;
   box-shadow: 0 4px 8px rgba(87, 87, 87, 0.4);
-  margin-left: 0;
 }
 
 .report-buttons button:hover {
   background-color: #3e3e3e;
   transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(62, 62, 62, 0.6);
 }
 
 .report-container p {
-  margin-bottom: 22px;
-  font-size: 16px;
+  margin-bottom: 18px;
+  font-size: 15px;
   line-height: 1.5;
-  color: #575757;
 }
 
-/* Table styling */
+/* Table wrapper for scrollability */
+.report-table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
 .report-table {
   width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
-  margin-top: 25px;
-  box-shadow: 0 4px 12px rgba(87, 87, 87, 0.15);
+  background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  background-color: white;
+  box-shadow: 0 4px 12px rgba(87, 87, 87, 0.15);
 }
 
 .report-table th,
@@ -87,7 +87,6 @@
 .report-table th {
   background-color: #575757;
   color: white;
-  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -97,12 +96,11 @@
   cursor: default;
 }
 
-/* Optional: style for bullets if you add lists later */
+/* Overview list styles */
 .overview-list {
   list-style-type: none;
   padding-left: 0;
   font-size: 18px;
-  color: #575757;
   font-weight: 600;
 }
 
@@ -118,20 +116,18 @@
   position: absolute;
   left: 0;
   font-size: 20px;
-  line-height: 1;
   top: 2px;
 }
 
-/* Hover style for event nav if used */
+/* Event navigation hover */
 .event-nav-item:hover {
   background-color: #dedede !important;
   cursor: pointer;
 }
 
-/* Summary sections if needed */
+/* Summary sections */
 .summary-section h4 {
   margin-top: 30px;
-  color: #575757;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 0.02em;
@@ -141,7 +137,6 @@
   padding-left: 20px;
   margin-top: 10px;
   font-size: 16px;
-  color: #575757;
 }
 
 .summary-section ol li {
@@ -153,5 +148,189 @@
   margin-top: 18px;
   font-size: 16px;
   font-weight: 600;
+}
+
+/* Status badge */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: whitesmoke;
+  text-wrap: nowrap;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.status-badge.draft {
+  background-color: #f39c12;
+}
+
+.status-badge.in-progress {
+  background-color: #3498db;
+}
+
+/* Action buttons inside table */
+.report-table td button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.report-table td:last-child {
+  white-space: nowrap;
+}
+
+.report-table td button svg {
+  font-size: 10px;
+}
+
+.report-table td button:nth-child(1) {
+  background-color: #2980b9;
+  color: white;
+  
+}
+.report-table td button:nth-child(1):hover {
+  background-color: #21618c;
+}
+
+.report-table td button:nth-child(2) {
+  background-color: #27ae60;
+  color: white;
+}
+.report-table td button:nth-child(2):hover {
+  background-color: #1e8449;
+}
+
+.report-table td button:nth-child(3) {
+  background-color: #c0392b;
+  color: white;
+}
+.report-table td button:nth-child(3):hover {
+  background-color: #922b21;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .report-container {
+    margin: 100px 10px 20px 10px;
+    padding: 16px;
+  }
+
+  .report-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .report-header h2 {
+    font-size: 20px;
+  }
+
+  .report-buttons {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .report-buttons button {
+    width: 100%;
+    font-size: 14px;
+    justify-content: center;
+  }
+
+  .report-container p {
+    font-size: 14px;
+  }
+
+  .summary-section h4 {
+    font-size: 18px;
+  }
+
+  .summary-section ol,
+  .summary-section p {
+    font-size: 14px;
+  }
+
+  .overview-list {
+    font-size: 16px;
+  }
+
+  .report-table td button {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
+.modal {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(62, 62, 62, 0.75); /* dark semi-transparent background */
+  display: flex;
+  align-items: center; /* vertical center */
+  justify-content: center;
+  z-index: 9999;
+  padding: 0 15px;
+}
+
+.modal-content {
+  max-height: calc(90vh - 80px);
+  overflow-y: auto;
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  width: 80%;
+  box-shadow: 0 4px 20px rgba(62, 62, 62, 0.3);
   color: #575757;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: #3e3e3e;
+  font-weight: 700;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.modal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #575757;
+}
+
+.modal-content table td {
+  border: 1px solid #dedede;
+  padding: 8px 12px;
+  vertical-align: top;
+}
+
+.modal-content table tr:nth-child(even) {
+  background-color: #f0eaea;
+}
+
+.close-btn {
+  float: right;
+  font-size: 26px;
+  cursor: pointer;
+  color: #575757;
+  user-select: none;
+  transition: color 0.3s ease;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+}
+
+.close-btn:hover {
+  color: #4caf50;
 }

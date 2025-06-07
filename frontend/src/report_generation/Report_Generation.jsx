@@ -5,7 +5,7 @@ import { FaChartLine, FaRegCalendarCheck, FaFileAlt } from 'react-icons/fa';
 const reportNavItems = [
   { id: 'reportOverview', label: 'Participation Info', icon: <FaChartLine />, path: 'participationinfo' },
   { id: 'report', label: 'Report', icon: <FaRegCalendarCheck />, path: 'report' },
-  { id: 'summaryReport', label: 'Summary', icon: <FaFileAlt />, path: 'summary' }
+  { id: 'draftenent', label: 'DraftEvent', icon: <FaFileAlt />, path: 'draftevent' }
 ];
 
 const Report_Generation = () => {

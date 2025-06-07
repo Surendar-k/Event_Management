@@ -212,3 +212,26 @@ body{
     display: none !important;
   }
 }
+@media screen and (max-width: 1024px) {
+  .event-nav {
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 20px;
+    justify-content: flex-start;
+  }
+
+  .event-nav::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .event-nav::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 6px;
+  }
+
+  .event-nav-item {
+    flex-shrink: 0;
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+}
